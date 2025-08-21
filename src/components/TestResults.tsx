@@ -22,14 +22,12 @@ export const ResultsPage = ({
   const [saved, setSaved] = useState(false);
 
   const handleSaveResult = (correct: number, total: number, testId: string) => {
-    // Tekshirish: shu testId allaqachon saqlanganmi?
     const alreadyExists = results.some((res) => res.testId === testId);
     if (alreadyExists) {
       alert("Этот результат уже сохранен!");
       return;
     }
 
-    // Agar hammasi to'g'ri javob bo'lsa, balans qo‘shamiz
     const test = categories.find((test) => test.id === testId);
     if (correct === total && test) {
       dispatch(addBalance(test.win));
@@ -56,10 +54,9 @@ export const ResultsPage = ({
       })
     );
 
-    setSaved(true); // bosilgandan keyin disable qilamiz
+    setSaved(true);
   };
 
-  console.log(answers)
   return (
     <div className="max-w-lg mx-auto mt-10 bg-white shadow-lg rounded-2xl p-6">
       <h2 className="text-2xl font-bold text-center mb-4 text-gray-800">
