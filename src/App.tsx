@@ -5,7 +5,7 @@ import AchievementsPage from "./pages/AchievementsPage";
 import TestsPage from "./pages/tests";
 import TestDetail from "./pages/tests/testDetailPage";
 import ProfilePage from "./pages/ProfilePage";
-import LayoutApp from "./components/navbar";
+import LayoutApp from "./components/layout";
 
 export default function App() {
   return (
