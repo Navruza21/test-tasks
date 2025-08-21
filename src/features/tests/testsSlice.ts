@@ -1,24 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
-interface Question {
-  id: number;
-  question: string;
-  options: string[];
-  answer: string;
-}
-
-interface TestCategory {
-  id: string;
-  title: string;
-  description: string;
-  questions: Question[];
-  price:number,
-  win:number
-}
-
-interface TestsState {
-  categories: TestCategory[];
-}
+import { TestsState } from "../types";
 
 const initialState: TestsState = {
   categories: [
@@ -33,7 +14,7 @@ const initialState: TestsState = {
         answer: "A",
       })),
       price:200,
-      win:250
+      win:250,
     },
     {
       id: "js",

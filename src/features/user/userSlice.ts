@@ -1,41 +1,24 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { Achievement, Result, UserState } from "../types";
 
-interface Result {
-  id: number;
-  testName: string;
-  score: number;
-  date: string;
-}
-
-interface Achievement {
-  id: number;
-  title: string;
-  description: string;
-}
-
-interface UserState {
-  name: string;
-  surname: string;
-  balance: number;
-  testsCompleted: number;
-  averageScore: number;
-  results: Result[];
-  achievements: Achievement[];
-}
 
 const initialState: UserState = {
   name: "Navruza",
   surname: "Sadinova",
   balance: 120,
   testsCompleted: 3,
-  averageScore: 85,
+  averageScore: 0,
   results: [
     { id: 1, testName: "React Basics", score: 90, date: "2025-08-01" },
     { id: 2, testName: "JavaScript Advanced", score: 80, date: "2025-08-05" },
     { id: 3, testName: "Redux Toolkit", score: 85, date: "2025-08-10" },
   ],
   achievements: [
-    { id: 1, title: "JS Guru", description: "Scored 100% in JS Advanced" },
+    {
+      id: 1,
+      title: "JS Гуру",
+      description: "Получил 100% на продвинутом тесте по JavaScript",
+    },
   ],
 };
 
@@ -53,8 +36,11 @@ const userSlice = createSlice({
     addBalance: (state, action: PayloadAction<number>) => {
       state.balance += action.payload;
     },
+    addAchievement: (state, action: PayloadAction<Achievement>) => {
+      state.achievements.push(action.payload);
+    },
   },
 });
 
-export const { addResult, addBalance } = userSlice.actions;
+export const { addResult, addBalance, addAchievement } = userSlice.actions;
 export default userSlice.reducer;

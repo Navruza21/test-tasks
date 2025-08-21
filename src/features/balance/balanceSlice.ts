@@ -1,9 +1,8 @@
 // src/store/balanceSlice.ts
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { BalanceState } from "../types";
 
-type BalanceState = {
-  balance: number;
-};
+
 
 const initialState: BalanceState = {
   balance: 1000,
